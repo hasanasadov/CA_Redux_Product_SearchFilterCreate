@@ -16,8 +16,9 @@ const ProductsPage = () => {
         totalCount: 0,
     });
 
-    const searchStr = searchParams.get("searchStr");
-    const sort = searchParams.get("sort");
+    const searchStr = searchParams.get("searchStr") || "";
+    const sort = searchParams.get("sort") || "";
+    console.log(sort);
     const { hasMore, totalCount } = paginationData;
 
     useEffect(() => {

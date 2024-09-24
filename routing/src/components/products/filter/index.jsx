@@ -16,7 +16,7 @@ export const ProductsFilter = () => {
             setSearchParams({ searchStr: value });
         }, 400);
     };
-
+    
     const handleSortChange = (value) => {
         searchParams.set("sort", value);
         setSearchParams(searchParams);
@@ -25,7 +25,7 @@ export const ProductsFilter = () => {
     const options = [
         { value: "name-asc", label: "Name", icon: <NorthIcon fontSize="12" /> },
         {
-            value: "name-decs",
+            value: "name-desc",
             label: "Name",
             icon: <SouthIcon fontSize="12" />,
         },
@@ -35,7 +35,7 @@ export const ProductsFilter = () => {
             icon: <NorthIcon fontSize="12" />,
         },
         {
-            value: "price-decs",
+            value: "price-desc",
             label: "Price",
             icon: <SouthIcon fontSize="12" />,
         },
