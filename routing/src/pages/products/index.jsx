@@ -18,16 +18,16 @@ const ProductsPage = () => {
 
     const searchStr = searchParams.get("searchStr") || "";
     const sort = searchParams.get("sort") || "";
-    console.log(sort);
+    const creators = searchParams.get("creators") || "";
     const { hasMore, totalCount } = paginationData;
 
     useEffect(() => {
         getData();
-    }, [searchStr]);
+    }, [searchStr,sort,creators]);
 
     async function fetchData(pageSize = 6, skip = 0) {
         const response = await fetch(
-            `http://localhost:3000/api/nfts?pageSize=${pageSize}&skip=${skip}&searchStr=${searchStr}&sort=${sort}`
+            `http://localhost:3000/api/nfts?pageSize=${pageSize}&skip=${skip}&searchStr=${searchStr}&sort=${sort}&creators=${creators}`
         );
         return await response.json();
     }
@@ -64,7 +64,7 @@ const ProductsPage = () => {
                 <ProductActionModal />
             </div>
             <ProductsFilter />
-            <div className="grid grid-cols-3 gap-6 mt-6">
+            <div className="grid   md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                 {loading ? (
                     <>
                         <ProductCard.Skeleton />
